@@ -220,7 +220,7 @@ weights = {
     "environment": st.slider("Environment", 0, 100, 0)
 }
 
-if sum(weights.values()) != 100:
+if abs(sum(weights.values()) - 100) > 0.01
     st.warning("Total weight must be 100")
     st.stop()
 
