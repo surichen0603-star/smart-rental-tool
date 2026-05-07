@@ -258,6 +258,7 @@ if st.button("Calculate"):
     ) / 100
     
     df["total_score"] = df["total_score"].round(2)
+    df["environment_score"] = df["environment_score"].round(2)
 
     st.subheader("Results")
     st.dataframe(df.sort_values("total_score", ascending=False))
