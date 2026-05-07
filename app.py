@@ -6,7 +6,7 @@ import requests
 # CONFIG
 # ===============================
 import os
-API_KEY = "AIzaSyDMPpZY8vE8515SObWhFV1w5TEqfqBvV-4"
+API_KEY = st.secrets["GOOGLE_API_KEY"]
 
 # ===============================
 # GOOGLE MAPS API
@@ -119,6 +119,9 @@ def environment_score(row):
 # ===============================
 st.title("🏠 Smart Rental Decision System")
 st.caption(f"API calls used: {st.session_state.api_calls} / {MAX_CALLS}")
+st.caption(
+    "Transit times may be significantly longer at night due to limited service."
+)
 st.markdown(
     """
     <style>
@@ -253,8 +256,8 @@ if st.button("Calculate"):
         + df["roommate_score"] * weights["roommate"]
         + df["environment_score"] * weights["environment"]
     ) / 100
-    df["total_score"] = df["total_score"].round(2)
     
+    df["total_score"] = df["total_score"].round(2)
+
     st.subheader("Results")
     st.dataframe(df.sort_values("total_score", ascending=False))
-
