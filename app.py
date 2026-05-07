@@ -11,7 +11,7 @@ API_KEY = st.secrets["GOOGLE_API_KEY"]
 # ===============================
 # GOOGLE MAPS API
 # ===============================
-MAX_CALLS = 2000
+MAX_CALLS = 100
 
 if "api_calls" not in st.session_state:
     st.session_state.api_calls = 0
