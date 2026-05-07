@@ -253,7 +253,8 @@ if st.button("Calculate"):
         + df["roommate_score"] * weights["roommate"]
         + df["environment_score"] * weights["environment"]
     ) / 100
-
+    df["total_score"] = df["total_score"].round(2)
+    
     st.subheader("Results")
     st.dataframe(df.sort_values("total_score", ascending=False))
 
