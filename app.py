@@ -122,6 +122,15 @@ st.caption(f"API calls used: {st.session_state.api_calls} / {MAX_CALLS}")
 st.caption(
     "Transit times may be significantly longer at night due to limited service."
 )
+
+st.markdown("""
+<style>
+header {
+    visibility: hidden;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.markdown(
     """
     <style>
